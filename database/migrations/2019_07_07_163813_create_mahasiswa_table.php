@@ -17,9 +17,9 @@ class CreateMahasiswaTable extends Migration
             $table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('jenis_kelamin');
-            $table->string('agama');
-            $table->text('alamat');
+            $table->string('gender');
+            $table->string('religion');
+            $table->text('address');
             $table->timestamps();
         });
     }
