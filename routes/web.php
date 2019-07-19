@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,10 +16,16 @@
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/login', 'AuthController@login')->name('login');
+Route::post('/postlogin', 'AuthController@postlogin');
+Route::get('/logout', 'AuthController@logout');
 
-Route::get('/dashboard', 'DashboardController@index');
-Route::get('/mahasiswa', 'MahasiswaController@index');
-Route::post('/mahasiswa/create', 'MahasiswaController@create');
-Route::get('/mahasiswa/{id}/edit', 'MahasiswaController@edit');
-Route::post('/mahasiswa/{id}/update', 'MahasiswaController@update');
-Route::get('/mahasiswa/{id}/delete', 'MahasiswaController@delete');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', 'DashboardController@index');
+    Route::get('/mahasiswa', 'MahasiswaController@index');
+    Route::post('/mahasiswa/create', 'MahasiswaController@create');
+    Route::get('/mahasiswa/{id}/edit', 'MahasiswaController@edit');
+    Route::post('/mahasiswa/{id}/update', 'MahasiswaController@update');
+    Route::get('/mahasiswa/{id}/delete', 'MahasiswaController@delete');
+    Route::get('/mahasiswa/{id}/profile', 'MahasiswaController@profile');
+});

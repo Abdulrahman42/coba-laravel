@@ -35,6 +35,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr class="text-center">
+                            <th>#</th>
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Gender</th>
@@ -56,8 +57,9 @@
                     <tbody>
                         @foreach($data_mahasiswa as $mahasiswa)
                         <tr class="text-center">
-                            <td>{{$mahasiswa->first_name}}</td>
-                            <td>{{$mahasiswa->last_name}}</td>
+                            <td></td>
+                            <td><a href="/mahasiswa/{{$mahasiswa->id}}/profile"> {{$mahasiswa->first_name}}</a></td>
+                            <td><a href="/mahasiswa/{{$mahasiswa->id}}/profile"> {{$mahasiswa->last_name}}</a></td>
                             <td>{{$mahasiswa->gender}}</td>
                             <td>{{$mahasiswa->religion}}</td>
                             <td>{{$mahasiswa->address}}</td>
