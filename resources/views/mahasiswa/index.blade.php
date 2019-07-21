@@ -200,8 +200,12 @@
                         <input type="text" class="form-control" name="first_name" id="firstname" placeholder="First Name">
                     </div>
                     <div class="form-group">
-                        <label for="lastname">last Name</label>
+                        <label for="lastname">Last Name</label>
                         <input type="text" class="form-control" name="last_name" id="lastname" placeholder="Last Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email">
                     </div>
                     <!-- <div class="form-group">
                             <label for="pesan">Gender</label>
@@ -242,6 +246,15 @@
                     <div class="form-group">
                         <label for="address">Address</label>
                         <textarea name="address" id="address" class="form-control" cols="10" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <select class="form-control" name="role" id="role">
+                            <option value=""></option>
+                            <option value="A">Admin</option>
+                            <option value="S">Staf</option>
+
+                        </select>
                     </div>
             </div>
             <div class="modal-footer">
