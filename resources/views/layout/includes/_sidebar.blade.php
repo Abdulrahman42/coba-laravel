@@ -19,8 +19,8 @@
     </li>
 
     <!-- Divider -->
+    @if(auth()->user()->role=='admin')
     <hr class="sidebar-divider">
-
     <!-- Heading -->
     <div class="sidebar-heading">
         Interface
@@ -34,6 +34,7 @@
         </a>
 
     </li>
+    @endif
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <!-- <li class="nav-item">

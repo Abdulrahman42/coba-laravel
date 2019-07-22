@@ -15,7 +15,15 @@ class MahasiswaController extends Controller
 
     public function create(Request $request)
     {
-        \App\Mahasiswa::create($request->all());
+        $user = new \App\User();
+        $user->role = 'mahasiswa';
+        $user->name = $request->first_name;
+        $user->email = $request->email;
+        $user->password = bcrypt('masuk123');
+        $user->remember_token = str_random(60);
+        $user->save();
+        $request->request->add(['user_id' => $user->id]);
+        $mahasiswa = \App\Mahasiswa::create($request->all());
         return redirect('/mahasiswa')->with('success', 'Add Data Success!');
     }
 

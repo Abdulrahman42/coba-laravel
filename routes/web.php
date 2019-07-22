@@ -14,13 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 Route::get('/login', 'AuthController@login')->name('login');
 Route::post('/postlogin', 'AuthController@postlogin');
 Route::get('/logout', 'AuthController@logout');
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth', 'CheckRole:admin']], function () {
     Route::get('/dashboard', 'DashboardController@index');
     Route::get('/mahasiswa', 'MahasiswaController@index');
     Route::post('/mahasiswa/create', 'MahasiswaController@create');
@@ -28,4 +28,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/mahasiswa/{id}/update', 'MahasiswaController@update');
     Route::get('/mahasiswa/{id}/delete', 'MahasiswaController@delete');
     Route::get('/mahasiswa/{id}/profile', 'MahasiswaController@profile');
+});
+
+Route::group(['middleware' => ['auth', 'CheckRole:admin,mahasiswa']], function () {
+    Route::get('/dashboard', 'DashboardController@index');
 });
