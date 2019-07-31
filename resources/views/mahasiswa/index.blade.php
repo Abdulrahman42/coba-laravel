@@ -16,9 +16,9 @@ Data Mahasiswa
                     <h4>Data Mahasiswa</h4>
 
                 </div>
-                <div class="col-6">
+                <div class="col-6 mt-2">
                     <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModalScrollable">
-                        <i class="fas fa-fw fa-user-plus-alt"></i><span>Create</span>
+                        <i class="fas fa-fw fa-plus-alt"></i><span>Create</span>
                     </button>
 
                 </div>
@@ -52,7 +52,7 @@ Data Mahasiswa
                     <tbody>
                         @foreach($data_mahasiswa as $mahasiswa)
                         <tr class="text-center">
-                            <td></td>
+                            <td>{{$loop->iteration }}</td>
                             <td> {{$mahasiswa->first_name}}</a></td>
                             <td> {{$mahasiswa->last_name}}</a></td>
                             <td>{{$mahasiswa->gender}}</td>
